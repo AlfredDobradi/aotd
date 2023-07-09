@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album of the day</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400&display=swap" rel="stylesheet">
+    <link href="/css/normalize.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Brvy's AOTD</h1>
+    <div class="headline">The album I picked to listen to each day. No shuffle, from start to the end at least once.</div>
+    <div class="album">
+        <div class="date">{{ .Param "pdate" }}</div>
+        <div class="cover">
+            {{ with (resources.Get (.Param "cover")) }}
+                <img src="{{ .RelPermalink }}" />
+            {{ end }}
+        </div>
+        <div class="meta">
+            {{ .Param "artist" }} - {{ .Param "title" }} ({{ .Param "year" }})
+        </div>
+    </div>
+</body>
+</html>
