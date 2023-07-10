@@ -14,7 +14,7 @@
     <h1>Brvy's AOTD</h1>
     <div class="headline">The album I picked to listen to each day. No shuffle, from start to the end at least once.</div>
     <div class="album">
-        <div class="date">{{ .Param "pdate" }}</div>
+        <div class="date">{{ .PublishDate.Format "2006-01-02" }}</div>
         <div class="cover">
             {{ with (resources.Get (.Param "cover")) }}
                 <img src="{{ .RelPermalink }}" />
