@@ -7,5 +7,6 @@ date: 2023-07-09T22:10:46+01:00
 draft: false
 url: "2023-07-09"
 publishDate: "2023-07-09"
+spotify: https://open.spotify.com/album/3dgsCZMswt6TWbsKcMgoO2?si=d9RLNTliRRGkfo60eqwfjQ
 ---
 

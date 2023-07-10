@@ -23,7 +23,10 @@
             {{ end }}
         </div>
         <div class="meta">
-            {{ .Param "artist" }} - {{ .Param "title" }} ({{ .Param "year" }})
+            {{ .Param "artist" }} - {{ .Param "title" }} ({{ .Param "year" }})<br />
+            <div class="spotify">
+                <a href="{{ .Param "spotify" }}" target="_blank">Check it out on Spotify</a>
+            </div>
         </div>
     </div>
     {{ else }}

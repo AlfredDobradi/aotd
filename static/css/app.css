@@ -23,7 +23,7 @@ div.no-album {
     text-align: center;
     font-size: 16px;
     font-weight: 200;
-    margin: 40px 0;
+    margin: 60px 0;
 }
 
 div.album {
@@ -46,4 +46,13 @@ div.album .cover {
 div.album .cover img {
     max-width: 370px;
     max-height: 370px;
+}
+
+div.spotify {
+    margin-top:10px;
+}
+
+div.spotify a {
+    color: #1DB954;
+    text-decoration: none;
 }
