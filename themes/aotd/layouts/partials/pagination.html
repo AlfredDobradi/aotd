@@ -1,0 +1,27 @@
+{{- $pages := site.RegularPages.ByPublishDate.Reverse -}}
+{{- $aa := . }}
+{{- if gt (len $pages) 1 }}
+<div class="nav">
+    {{- $prev := -1 -}}
+    {{- $next := -1 -}}
+    {{- range $i, $a := $pages -}}
+        {{- if eq $aa.PublishDate $a.PublishDate -}}
+            {{- $prev = (math.Add $i -1) -}}
+            {{- $next = (math.Add $i 1) -}}
+        {{- end -}}
+    {{- end }}
+    <div class="next">  
+    {{- if index $pages $next -}}
+        {{- $nextPage := (index $pages $next) }}
+        <a href="{{ $nextPage.Permalink }}" target="_self">&lt;&lt; {{ $nextPage.PublishDate.Format "2006-01-02" }}</a>
+    {{- end }}
+    </div>
+
+    <div class="prev">
+    {{- if index $pages $prev -}}
+        {{- $prevPage := (index $pages $prev) }}
+        <a href="{{ $prevPage.Permalink }}" target="_self">{{ $prevPage.PublishDate.Format "2006-01-02" }} &gt;&gt;</a>
+    {{- end }}
+    </div>
+</div>
+{{- end }}

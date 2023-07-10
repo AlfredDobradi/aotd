@@ -13,24 +13,26 @@
 <body>
     <h1>Brvy's AOTD</h1>
     <div class="headline">The album I picked to listen to each day. No shuffle, from start to the end at least once.</div>
-    {{ $album := (where site.RegularPages.ByPublishDate.Reverse "Params.publishDate" (time (now.Format "2006-01-02"))) }}
-    {{ range $album }}
+    {{- $album := (where site.RegularPages.ByPublishDate.Reverse "Params.publishDate" (time (now.Format "2006-01-02"))) -}}
+    {{- range $album -}}
     <div class="album">
         <div class="date">{{ .PublishDate.Format "2006-01-02" }}</div>
         <div class="cover">
-            {{ with (resources.Get (.Param "cover")) }}
-                <img src="{{ .RelPermalink }}" />
-            {{ end }}
+            {{- with (resources.Get (.Param "cover")) }}
+            <img src="{{ .RelPermalink }}" />
+            {{- end }}
         </div>
         <div class="meta">
-            {{ .Param "artist" }} - {{ .Param "title" }} ({{ .Param "year" }})<br />
+            <div>{{ .Param "artist" }} - {{ .Param "title" }} ({{ .Param "year" }})</div>
             <div class="spotify">
                 <a href="{{ .Param "spotify" }}" target="_blank">Check it out on Spotify</a>
             </div>
         </div>
     </div>
-    {{ else }}
+
+    {{ partial "pagination.html" . }}
+    {{- else -}}
         <div class="no-album">Unfortunately there's no album of the day for today. :(</div>
-    {{ end }}
+    {{- end }}
 </body>
 </html>

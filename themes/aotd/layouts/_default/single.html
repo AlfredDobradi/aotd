@@ -16,13 +16,18 @@
     <div class="album">
         <div class="date">{{ .PublishDate.Format "2006-01-02" }}</div>
         <div class="cover">
-            {{ with (resources.Get (.Param "cover")) }}
-                <img src="{{ .RelPermalink }}" />
-            {{ end }}
+            {{- with (resources.Get (.Param "cover")) }}
+            <img src="{{ .RelPermalink }}" />
+            {{- end }}
         </div>
         <div class="meta">
-            {{ .Param "artist" }} - {{ .Param "title" }} ({{ .Param "year" }})
+            <div>{{ .Param "artist" }} - {{ .Param "title" }} ({{ .Param "year" }})</div>
+            <div class="spotify">
+                <a href="{{ .Param "spotify" }}" target="_blank">Check it out on Spotify</a>
+            </div>
         </div>
     </div>
+
+    {{ partial "pagination.html" . }}
 </body>
 </html>
