@@ -1,9 +1,12 @@
 ---
 artist: ""
-title: "{{ replace .Name "-" " " | title }}"
+title: ""
 cover: ""
-year: ""
+year: "1983"
 date: {{ .Date }}
-draft: true
+draft: false
+url: ""
+publishDate: ""
+spotify:
 ---
 
