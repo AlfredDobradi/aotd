@@ -9,6 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400&display=swap" rel="stylesheet">
     <link href="/css/normalize.css" rel="stylesheet" />
     <link href="/css/app.css" rel="stylesheet" />
+    <meta property="og:title" content="{{ .Param "artist" }} - {{ .Param "title" }} ({{ .Param "year" }})" />
+    <meta property="og:type" content="music.album" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    {{- with (resources.Get (.Param "cover")) }}
+    <meta property="og:image" content="{{ .Permalink }}" />
+    {{- end }}
 </head>
 <body>
     <h1>Brvy's AOTD</h1>
